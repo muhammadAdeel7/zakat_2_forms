@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Zakat Eligibility Declaration Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="form-card">
+
+    <!-- HEADER -->
+    <div class="form-header">
+      <div class="org-name">Confidential &nbsp;·&nbsp; Human Resources</div>
+      <div class="form-title">Employee Zakat Eligibility<br>Declaration Form</div>
+      <div class="form-subtitle">Please complete all sections accurately and honestly.</div>
+    </div>
+
+    <!-- DATE ROW -->
+    <div class="date-row">
+      <label for="formDate">Date:</label>
+      <input type="date" id="formDate" name="formDate" />
+    </div>
+
+    <form id="zakatForm" novalidate>
+    <div class="form-body">
+
+      <!-- SECTION 1: Employee Information -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <div class="section-title">Employee Information</div>
+        </div>
+        <div class="field-grid">
+          <div class="field field-full">
+            <label for="empName">Employee Name</label>
+            <input type="text" id="empName" name="empName" placeholder="Full legal name" required />
+          </div>
+          <div class="field">
+            <label for="empId">Employee ID</label>
+            <input type="text" id="empId" name="empId" placeholder="e.g. EMP-00123" required />
+          </div>
+          <div class="field">
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" placeholder="Your department" required />
+          </div>
+          <div class="field">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle" placeholder="Your position" required />
+          </div>
+          <div class="field">
+            <label for="salary">Monthly Salary (PKR)</label>
+            <input type="number" id="salary" name="salary" placeholder="0.00" min="0" step="0.01" required />
+          </div>
+          <div class="field">
+            <label for="contactNo">Contact Number</label>
+            <input type="tel" id="contactNo" name="contactNo" placeholder="+92 3XX XXXXXXX" required />
+          </div>
+          <div class="field field-full">
+            <label for="empEmail">Employee Email Address</label>
+            <input type="email" id="empEmail" name="empEmail" placeholder="employee@company.com" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Family Information -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <div class="section-title">Family Information</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Marital Status</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="maritalStatus" value="Single" required />
+                Single
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="maritalStatus" value="Married" />
+                Married
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="dependents">Number of Dependents</label>
+            <input type="number" id="dependents" name="dependents" placeholder="Including spouse / children / parents" min="0" />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Financial Information -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <div class="section-title">Financial Information</div>
+        </div>
+        <div class="field-grid single">
+
+          <!-- Q1 -->
+          <div class="field">
+            <div class="yn-block">
+              <div class="yn-question">Do you own savings, gold, investments, or assets exceeding the Nisab threshold?</div>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="exceedsNisab" value="Yes" onchange="toggleDetail('exceedsNisabDetail', this)" required />
+                  Yes
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="exceedsNisab" value="No" onchange="toggleDetail('exceedsNisabDetail', null)" />
+                  No
+                </label>
+              </div>
+              <div class="yn-detail" id="exceedsNisabDetail">
+                <label>If yes, please specify (optional):</label>
+                <input type="text" name="exceedsNisabDetails" placeholder="e.g. Savings account, gold jewellery…" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="field">
+            <div class="yn-block">
+              <div class="yn-question">Do you currently have financial liabilities or debts?</div>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="hasDebts" value="Yes" onchange="toggleDetail('hasDebtsDetail', this)" required />
+                  Yes
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="hasDebts" value="No" onchange="toggleDetail('hasDebtsDetail', null)" />
+                  No
+                </label>
+              </div>
+              <div class="yn-detail" id="hasDebtsDetail">
+                <label>If yes, please specify (optional):</label>
+                <input type="text" name="hasDebtsDetails" placeholder="e.g. Home loan, credit card balance…" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SECTION 4: Declaration -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <div class="section-title">Declaration</div>
+        </div>
+
+        <div class="declaration-box">
+          <p>I hereby declare that the information provided above is true and correct to the best of my knowledge. I confirm that my financial condition makes me eligible to receive Zakat according to Islamic principles and that I do not possess wealth exceeding the Nisab threshold after considering my basic needs and liabilities.</p>
+          <p>I understand that providing false information may disqualify me from receiving Zakat assistance.</p>
+        </div>
+
+        <div class="sig-date-row">
+          <div class="sig-field">
+            <label>Employee Signature</label>
+            <div class="sig-canvas-wrapper">
+              <canvas id="signatureCanvas" width="380" height="90"></canvas>
+              <button type="button" class="sig-clear" onclick="clearSignature()">✕ Clear</button>
+            </div>
+            <div class="sig-hint">Draw your signature above using mouse or touch.</div>
+          </div>
+          <div class="field">
+            <label for="declarationDate">Date</label>
+            <input type="date" id="declarationDate" name="declarationDate" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Office Use Only -->
+      <div class="office-section">
+        <div class="office-header">For Office Use Only</div>
+        <div class="office-grid">
+          <div class="field">
+            <label for="reviewedBy">Reviewed By</label>
+            <input type="text" id="reviewedBy" name="reviewedBy" placeholder="Reviewer name" />
+          </div>
+          <div class="field">
+            <label>Eligibility Status</label>
+            <div class="eligibility-radios">
+              <label class="radio-item">
+                <input type="radio" name="eligibilityStatus" value="Eligible" />
+                ☐ Eligible
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="eligibilityStatus" value="Not Eligible" />
+                ☐ Not Eligible
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="approvedBy">Approved By</label>
+            <input type="text" id="approvedBy" name="approvedBy" placeholder="Approver name" />
+          </div>
+          <div class="field">
+            <label for="approvalDate">Date</label>
+            <input type="date" id="approvalDate" name="approvalDate" />
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /form-body -->
+
+    <!-- FOOTER -->
+    <div class="form-footer">
+      <div class="btn-row">
+        <button type="button" class="reset-btn" onclick="resetForm()">Reset Form</button>
+        <button type="submit" class="submit-btn" id="submitBtn" form="zakatForm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/>
+          </svg>
+          <span id="submitLabel">Submit Declaration</span>
+        </button>
+      </div>
+    </div>
+
+    </form>
+  </div><!-- /form-card -->
+</div><!-- /page-wrapper -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
